@@ -1,0 +1,16 @@
+Package: CollessLike
+Type: Package
+Title: Methods to compute distribution and percentile of balance indices of phylogenetic trees
+Version: 0.0.67
+Date: 2017-03-10
+Author: Arnau Mir, Francesc Rossello, Lucia Rotger
+Maintainer: Lucia Rotger <lucia.rotger@uib.es>
+Description: Methods to compute distribution and percentile of balance indices
+    (Colless-like, Sackin and cophenetic indices) of phylogenetic tree. It is also
+    possible to generate random trees according to the alpha-gamma model.
+License: GPL (>= 2)
+LazyData: true
+Depends: R (>= 3.3.0)
+Imports: ape, igraph
+RoxygenNote: 6.0.1
+Encoding: UTF-8
