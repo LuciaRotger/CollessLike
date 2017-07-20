@@ -49,9 +49,7 @@
 #' 
 #' @export
 indices.simulation <-
-function(n,alpha=NA,gamma=NA,repetitions=1000,norm=FALSE){
-    # setwd("D:/Recerca/sep_2015/")
-    # setwd("D:/Recerca/sep_2015/sep 2016/NuevosDatos/")
+function(n,alpha=NA,gamma=NA,repetitions=1000,norm=FALSE){ 
     only.one=FALSE
     if(is.na(alpha)){
         parameters = expand.grid(seq(0,1,0.1),seq(0,1,0.1),n)

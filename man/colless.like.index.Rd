@@ -2,12 +2,12 @@
 % Please edit documentation in R/colles.like.index.R
 \name{colless.like.index}
 \alias{colless.like.index}
-\title{Computes the Colless-like index of a tree}
+\title{Computes the Colless-like index of a phylogenetic tree}
 \usage{
 colless.like.index(tree, f.size = "ln", diss = "MDM", norm = FALSE)
 }
 \arguments{
-\item{tree}{a single phylogenetic tree. It can be introduced as a string in the Newick format, as a "phylo" object (\code{ape} package) or as an "igraph" object (\code{igraph} package).}
+\item{tree}{a single phylogenetic tree. It can be introduced as a string in the Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package).}
 
 \item{f.size}{by default is \code{f(n)=ln(n+e)}. It can be set as "ln" (default) or "exp" (\code{f(n)=exp(n)}). It aso can be a function defined by user, in this case the index can not be normalized.}
 

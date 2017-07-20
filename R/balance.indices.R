@@ -1,8 +1,8 @@
-#' @title Computes 3 balance index of a tree
+#' @title Computes Colles-like, Sackin and cophenetic balance indices of a phylogenetic tree.
 #' 
-#' @description Computes Colles-like, sackin and cophenetic indices of a phylogenetic tree.
+#' @description Computes Colles-like, Sackin and cophenetic balance indices of a phylogenetic tree.
 #' 
-#' @param tree a single phylogenetic tree. It can be introduced as a string in the Newick format, as a "phylo" object (\code{ape} package) or as an "igraph" object (\code{igraph} package). 
+#' @param tree a single phylogenetic tree. It can be introduced as a string in the Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package). 
 #' @param norm a logical object indicating if the indices should been normalized or not.
 #'
 #' @details The Colless-like index is the generalization of the Colless' index for non-binary trees.
@@ -78,7 +78,7 @@ function(tree,norm=FALSE){
     Vdis = lapply(deltas, D.MDM)
     COLLESS = sum(unlist(Vdis)) 
     ########
-    if(deg.out[root.node]==1){ #Tiene arista raiz 
+    if(deg.out[root.node]==1){ #exists root-edge
       tree = delete.vertices(tree,root.node) 
       deg.out = degree(tree,mode="out") 
       root.node = which(degree(tree,mode="in")==0)

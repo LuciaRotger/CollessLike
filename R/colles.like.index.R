@@ -1,8 +1,8 @@
-#' @title Computes the Colless-like index of a tree
+#' @title Computes the Colless-like index of a phylogenetic tree
 #' 
 #' @description Computes the Colless-like balance index of a phylogenetic tree.
 #' 
-#' @param tree a single phylogenetic tree. It can be introduced as a string in the Newick format, as a "phylo" object (\code{ape} package) or as an "igraph" object (\code{igraph} package). 
+#' @param tree a single phylogenetic tree. It can be introduced as a string in the Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package). 
 #' @param norm a logical object indicating if the indices should been normalized or not.
 #' @param f.size by default is \code{f(n)=ln(n+e)}. It can be set as "ln" (default) or "exp" (\code{f(n)=exp(n)}). It aso can be a function defined by user, in this case the index can not be normalized.
 #' @param diss by default the dissimilarity is \code{MDM}. It can also be set as "var" (the sample variance) or "sd" (the sample standard deviation). It aso can be a function defined by user, in this case the index can not be normalized.

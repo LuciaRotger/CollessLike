@@ -1,8 +1,8 @@
-#' @title Computes the Sackin index of a tree
+#' @title Computes the Sackin index of a phylogenetic tree
 #' 
 #' @description Computes the Sackin index of balance of a phylogenetic tree.
 #' 
-#' @param tree a single phylogenetic tree. It can be introduced as a string in the Newick format, as a "phylo" object (\code{ape} package) or as an "igraph" object (\code{igraph} package). 
+#' @param tree a single phylogenetic tree. It can be introduced as a string in the Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package). 
 #' @param norm a logical object indicating if the indices should been normalized or not.
 #' 
 #' @details The Sackin's index is computed as the sum of the number of ancestors for each leave of the tree.
@@ -50,7 +50,7 @@ sackin.index <-
       stop("Not an igraph object. Please introduce a newick string, an ape tree or an igraph tree.")
     root.node = which(degree(tree,mode="in")==0) 
     deg.out = degree(tree,mode="out") 
-    if(deg.out[root.node]==1){ #Tiene arista raiz 
+    if(deg.out[root.node]==1){ #exists a root-edge
       tree = delete.vertices(tree,root.node) 
       deg.out = degree(tree,mode="out") 
       root.node = which(degree(tree,mode="in")==0)

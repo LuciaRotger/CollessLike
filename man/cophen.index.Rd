@@ -2,12 +2,12 @@
 % Please edit documentation in R/cophen.index.R
 \name{cophen.index}
 \alias{cophen.index}
-\title{Computes the cophenetic index of a tree}
+\title{Computes the cophenetic index of a phylogenetic tree}
 \usage{
 cophen.index(tree, norm = FALSE)
 }
 \arguments{
-\item{tree}{a single phylogenetic tree. It can be introduced as a string in the Newick format, as a "phylo" object (\code{ape} package) or as an "igraph" object (\code{igraph} package).}
+\item{tree}{a single phylogenetic tree. It can be introduced as a string in the Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package).}
 
 \item{norm}{a logical object indicating if the indices should been normalized or not.}
 }

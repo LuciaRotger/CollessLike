@@ -2,12 +2,12 @@
 % Please edit documentation in R/balance.indices.R
 \name{balance.indices}
 \alias{balance.indices}
-\title{Computes 3 balance index of a tree}
+\title{Computes Colles-like, Sackin and cophenetic balance indices of a phylogenetic tree.}
 \usage{
 balance.indices(tree, norm = FALSE)
 }
 \arguments{
-\item{tree}{a single phylogenetic tree. It can be introduced as a string in the Newick format, as a "phylo" object (\code{ape} package) or as an "igraph" object (\code{igraph} package).}
+\item{tree}{a single phylogenetic tree. It can be introduced as a string in the Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package).}
 
 \item{norm}{a logical object indicating if the indices should been normalized or not.}
 }
@@ -16,7 +16,7 @@ A numeric vector with the three computed indices of the tree:
 \code{Colless-like}, \code{Sackin} and \code{Cophenetic} values.
 }
 \description{
-Computes Colles-like, sackin and cophenetic indices of a phylogenetic tree.
+Computes Colles-like, Sackin and cophenetic balance indices of a phylogenetic tree.
 }
 \details{
 The Colless-like index is the generalization of the Colless' index for non-binary trees.

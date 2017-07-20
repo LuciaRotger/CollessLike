@@ -34,12 +34,11 @@ a.g.model <-
         if(alpha<gamma)
           stop("alpha < gamma")
         else{  
-          edge.matrix = matrix(c(1,2,2,3,2,4),byrow=T,ncol=2)
-          #n.leaves = 2
+          edge.matrix = matrix(c(1,2,2,3,2,4),byrow=T,ncol=2) 
           n.nodes = 4
           n.edges = 3
-          for(n.leaves in 3:n){#Proceso para añadir nueva hoja i 
-            #Asignar probabilities
+          for(n.leaves in 3:n){#Add new leaf
+            #Asign probabilities
             probabilities = rep(0,n.nodes+n.edges)
             degrees = rep(0,n.nodes)
             degree.table = table(edge.matrix[,1]) 
@@ -52,15 +51,15 @@ a.g.model <-
             probabilities[leaf.edge+n.nodes] = 1-alpha
             probabilities[which(degrees>1)] = (degrees[degrees>1]-1)*alpha-gamma
             probabilities = probabilities/(n.leaves-alpha)
-            #Escoger un numero segun estas prob y añadir nodo/arista
+            #
             random = sample(c(1:n.nodes,1:n.edges+n.nodes),1,prob=probabilities)
             
-            if(random<=n.nodes){#Se ha seleccionado un nodo
+            if(random<=n.nodes){#a node is selected
               edge.matrix = rbind(edge.matrix,c(random,n.nodes+1)) 
               n.nodes = n.nodes+1
               n.edges = n.edges+1
             }
-            else{#Se ha seleccionado una arista
+            else{#an edge is selected
               random = random - n.nodes
               edge.matrix = rbind(edge.matrix,c(edge.matrix[random,1],n.nodes+1)) 
               edge.matrix = rbind(edge.matrix,c(n.nodes+1,edge.matrix[random,2])) 
@@ -73,7 +72,7 @@ a.g.model <-
           tree = graph.edgelist(edge.matrix) 
           deg.out = degree(tree,mode="out")
           root.node = which(degree(tree,mode="in")==0)
-          if(deg.out[root.node]==1){ #Borrar arista raiz 
+          if(deg.out[root.node]==1){ #Erase the root-edge
             tree = delete.vertices(tree,root.node)  
           } 
           return(tree)

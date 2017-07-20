@@ -2,12 +2,12 @@
 % Please edit documentation in R/sackin.index.R
 \name{sackin.index}
 \alias{sackin.index}
-\title{Computes the Sackin index of a tree}
+\title{Computes the Sackin index of a phylogenetic tree}
 \usage{
 sackin.index(tree, norm = FALSE)
 }
 \arguments{
-\item{tree}{a single phylogenetic tree. It can be introduced as a string in the Newick format, as a "phylo" object (\code{ape} package) or as an "igraph" object (\code{igraph} package).}
+\item{tree}{a single phylogenetic tree. It can be introduced as a string in the Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package).}
 
 \item{norm}{a logical object indicating if the indices should been normalized or not.}
 }

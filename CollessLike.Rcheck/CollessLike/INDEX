@@ -1,0 +1,11 @@
+CollessLike-package     Methods to compute distribution and percentile
+                        of balance indices of phylogenetic trees
+a.g.model               Generates a random tree
+balance.indices         Computes 3 balance index of a tree
+colless.like.index      Computes the Colless-like index of a tree
+cophen.index            Computes the cophenetic index of a tree
+distribution            Computes the percentile in the alpha-gamma
+                        distribution of the indices of the given tree
+indices.simulation      Generates random trees and computes their
+                        balance indices
+sackin.index            Computes the Sackin index of a tree

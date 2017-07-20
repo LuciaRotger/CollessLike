@@ -104,23 +104,15 @@ distribution <-
             stop("alpha and gamma must been between 0 and 1")
           else{
             txt = paste("Parameters: n=",n,", alpha=",alpha,", gamma=",gamma,"",sep="")
-            if(paste("n",n,sep="")%in%dir(db.path)){
-              #print(TRUE)
+            if(paste("n",n,sep="")%in%dir(db.path)){ 
               file = paste("CollessLikeDataBase_n",n,"_a",alpha*100,"_g",gamma*100,"_r5000.txt",sep="")
               folder = paste(db.path,"n",n,"/",sep="")
-              if(file %in% dir(folder)){
-                #print("READ") 
+              if(file %in% dir(folder)){ 
                 indices.list=read.table(file=paste(folder,file,sep=""), header=TRUE)
               }
               else stop(paste("The file '",file,"' is not located at '",folder,"'",sep=""))
             }
             else stop(paste("The folder 'n",n,"' is not located at '",db.path,"'",sep=""))
-            
-            # if (n%in%3:50){ 
-            #   warning("Aqui leera la tabla ya generada en el servidor")
-            #   print("Aqui leera la tabla ya generada en el servidor")
-            #   indices.list=read.table(file=paste("D:/Recerca/sep_2015/sep 2016/NuevosDatos/alpha-gamma/n",n,"/Datos_ford_n",n,"_a",alpha*100,"_g",gamma*100,"_r5000.txt",sep=""), header=TRUE)
-            # } 
           }
         }
       }
@@ -158,14 +150,8 @@ distribution <-
     f.c=approxfun(d.c$x,d.c$y)
     tree.densities = round(c(f.cl(tree.indices[1]),f.s(tree.indices[2]),
                              f.c(tree.indices[3])),4)
-    tree.densities[is.na(tree.densities)]=0 #NA => density=0
-    #percentiles
-    #percentiles = c(which(sort(indices.list[,1])>tree.indices[1])[1],
-    #                which(sort(indices.list[,2])>tree.indices[2])[1],
-    #                which(sort(indices.list[,3])>tree.indices[3])[1] )
-    #percentiles = (percentiles-1) / dim(indices.list)[1]
-    #percentiles[is.na(percentiles)]=1 #NA => idx>1
-    #percentiles = round(percentiles,4)
+    tree.densities[is.na(tree.densities)]=0  
+    
     a.cl = cumsum(d.cl$y)
     a.cl=a.cl/max(a.cl) 
     a.s= cumsum(d.s$y)
@@ -191,7 +177,7 @@ distribution <-
                 percs[3],sep="")) 
     
     #plots
-    par(xpd=FALSE)#Evita dibujar lineas fuera del plot
+    par(xpd=FALSE) 
     
     if(!percentile.plot){
       plot(-1,-1 , xlab = "", ylab="Distribution of indices",
@@ -204,10 +190,7 @@ distribution <-
       legend(legend.location,c("Colles-Like","Sackin","Cophenetic"),
              fill = c(rgb(1,0,0,0.2),rgb(0,1,0,0.2),rgb(0,0,1,0.2),
                       bty ='n',border = NA),cex=cex)
-      
-      #par(xpd=TRUE)#Evita dibujar lineas fuera del plot
-      
-      #tree plots
+       
       lines(rep(tree.indices[1],2),c(0,tree.densities[1]),col=rgb(1,0,0),lwd =2)
       lines(rep(tree.indices[2],2),c(0,tree.densities[2]),col=rgb(0,1,0),lwd =2)
       lines(rep(tree.indices[3],2),c(0,tree.densities[3]),col=rgb(0,0,1),lwd =2)
@@ -230,9 +213,7 @@ distribution <-
       legend("topleft",c("Colles-Like","Sackin","Cophenetic"),
              fill = c(rgb(1,0,0,0.2),rgb(0,1,0,0.2),rgb(0,0,1,0.2),
                       bty ='n',border = NA),cex=cex)
-      
-      
-      
+       
       lines(rep(tree.indices[1],2),c(0,percs[1]),col=rgb(1,0,0),lwd =2)
       lines(rep(tree.indices[2],2),c(0,percs[2]),col=rgb(0,1,0),lwd =2)
       lines(rep(tree.indices[3],2),c(0,percs[3]),col=rgb(0,0,1),lwd =2)

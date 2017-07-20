@@ -29,7 +29,7 @@ tree = a.g.model(5,0.5,0.3)
 
 }
 \references{
-Chen, B., Ford, D., Winkel, M., A new family of Markov branching trees: the alpha-gamma model. \emph{Electr. J. Probab}. \bold{14} (2009), 400-430. MR2480547
+\insertRef{alphagamma}{CollessLike}
 }
 \author{
 Lucia Rotger
