@@ -14,22 +14,27 @@ a.g.model(n, alpha, gamma)
 \item{gamma}{parametrer of the alpha-gamma model, between 0 and alpha.}
 }
 \value{
-An igraph object that is the ford's tree created.
+An igraph object that represents the generated phylogenetic tree.
 }
 \description{
-Generates a random tree according to the alpha-gamma model
+Given alpha, gamma and the number of leaves n, generates a random phylogenetic tree between all trees with n leaves following the alpha-gamma model.
 }
 \examples{
  
+
+# A phylogenetic tree with 10 leaves and
+# parameters alpha=0.8 and gamma=0.1
 tree = a.g.model(10,0.8,0.1) 
 # plot(tree,layout=layout.reingold.tilford(tree,root=which(degree(tree,mode="in")==0)))
 
+# A phylogenetic tree with 5 leaves and
+# parameters alpha=0.5 and gamma=0.3
 tree = a.g.model(5,0.5,0.3)
 # plot(tree,layout=layout.reingold.tilford(tree,root=which(degree(tree,mode="in")==0)))
 
 }
 \references{
-\insertRef{alphagamma}{CollessLike}
+B. Chen, D. Ford, M. Winkel, A new family of Markov branching trees: the alpha-gamma model. \emph{Electr. J. Probab}. \bold{14} (2009), 400-430.
 }
 \author{
 Lucia Rotger

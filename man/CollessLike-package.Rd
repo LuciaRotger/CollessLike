@@ -21,15 +21,21 @@
 
 Maintainer: \packageMaintainer{CollessLike}
 }
-\references{ %Chen, B., Ford, D., Winkel, M., A new family of Markov branching trees: the alpha-gamma model. \emph{Electr. J. Probab}. \bold{14} (2009), 400-430. MR2480547
+\references{ B. Chen, D. Ford, M. Winkel, A new family of Markov branching trees: the alpha-gamma model. \emph{Electr. J. Probab}. \bold{14} (2009), 400-430. 
 
-A. Mir, F. Rossello, L.Rotger, A Colless-like balance index for multifurcating phylogenetic trees.
+A. Mir, F. Rossello, L. Rotger, A Colless-like balance index for multifurcating phylogenetic trees.\emph{}
  
-A. Mir, F. Rossello, L.Rotger, A new balance index for phylogenetic trees. Math. Biosc. 241 (2013).
+A. Mir, F. Rossello, L. Rotger, A new balance index for phylogenetic trees. \emph{Mathematical Biosciences} \bold{241} (2013), 125-136.
  
-M. J. Sackin, "Good" and  "bad" phenograms. Sys. Zool, 21 (1972), 225-226.
+M. J. Sackin, "Good" and  "bad" phenograms. \emph{Sys. Zool}, \bold{21} (1972), 225-226.
 
-\insertRef{alphagamma}{CollessLike}
+%\insertRef{alphagamma}{CollessLike}
+
+%\insertRef{collesslike}{CollessLike}
+
+%\insertRef{cophenetic}{CollessLike}
+
+%\insertRef{sackin}{CollessLike}
 %~~ Literature or other references for background information ~~
 }
 %~~ Optionally other standard keywords, one per line, from file ~~

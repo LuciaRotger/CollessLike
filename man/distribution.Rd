@@ -2,7 +2,7 @@
 % Please edit documentation in R/distribution.R
 \name{distribution}
 \alias{distribution}
-\title{Computes the percentile in the alpha-gamma distribution of the indices of the given tree}
+\title{Plot the distribution of Colless -Like, Sackin and cophenetic normalized balance indices under the alpha-gamma model and computes the percentile of a tree from previous distributions.}
 \usage{
 distribution(tree, alpha = NA, gamma = NA, set.indices = NULL,
   new.simulation = FALSE, repetitions = 1000,
@@ -10,36 +10,36 @@ distribution(tree, alpha = NA, gamma = NA, set.indices = NULL,
   db.path = getwd())
 }
 \arguments{
-\item{tree}{a single phylogenetic tree. It can be introduced as a string in the Newick format, as a "phylo" object (\code{ape} package) or as an "igraph" object (\code{igraph} package).}
+\item{tree}{a single phylogenetic tree. It can be entered as a string in Newick format, as a "phylo" object (\code{ape} package) or as an "igraph" object (\code{igraph} package).}
 
 \item{alpha}{parametrer of the alpha-gamma model, between 0 and 1.}
 
 \item{gamma}{parametrer of the alpha-gamma model, between 0 and alpha.}
 
-\item{set.indices}{if \code{NULL}(default) the indices data is taken from stored data or from a new simulated data (See "Details"). If not, it must be a 3-column data.frame with the three balance indices (Colles-like, Sackin, Cophenetic). See \code{\link{indices.simulation}}.}
+\item{set.indices}{If \code{NULL} (default) the values of the balance indices are taken from stored data or from a new simulated data (See "Details"). If not, it must be a 3-column data.frame with the three balance indices (Colles-like, Sackin, Cophenetic). See \code{\link{indices.simulation}}.}
 
-\item{new.simulation}{if \code{FALSE}(default) the indices data it could be from a data.frame introduced by the user or a data.frame from our database. If it is \code{TRUE}, a new indices data set is computed. See \code{\link{indices.simulation}}.}
+\item{new.simulation}{if \code{FALSE}(default) the values of the balance indices are taken from a data.frame entered by the user or from our database. If \code{TRUE}, the values of the balance indices are computed from a new simulation. See \code{\link{indices.simulation}}.}
 
-\item{repetitions}{the number of trees to generate in case a new simulation is done.}
+\item{repetitions}{if the value of the new.simulation parameter is \code{TRUE}, the number of trees to be generated.}
 
-\item{legend.location}{location where the legend is going to be placed. See "Details".}
+\item{legend.location}{location of the legend. See "Details".}
 
 \item{cex}{expansion factor of the legend. See "Details".}
 
-\item{percentile.plot}{if \code{TRUE} plots the percentile plot of the indices. If it is \code{FALSE}(default) , then a distribution plot is represented.}
+\item{percentile.plot}{if \code{FALSE} (default),  density plots of the normalized balance indices are shown. if \code{TRUE}, percentiles plots of the normalized balance indices are shown.}
 
-\item{db.path}{by default is the actual working directory. It should be changed if the data base is going to be used and it is located in a different directory.}
+\item{db.path}{the current working directory. If our database is used, the db.path parameter should be the directory where the database is located.}
 }
 \value{
 A numeric vector with the three percentiles.
 }
 \description{
-Computes the percentile in the alpha-gamma distribution of the indices (Colless-like, Sackin and Cophenetic) of the given tree. It also plots all the three distributions highlighting where are the indices of the given tree or it plots a percentile plot with the percentiles of the tree.
+Given alpha, gamma and a phylogenetic tree, plot the distribution of the Colless-Like, Sackin and cophenetic normalized balance indices under the alpha-gamma model and computes the percentile of that tree of the previous normalized balance indices under the alpha-gamma model.
 }
 \details{
-Two plots are available: one with the acumulated percentiles of the indices (\code{percentile.plot=FALSE}), and the other with the distribution (\code{percentile.plot=TRUE}).
+Two plots are available: one represents the percentile plots of the normalized balance indices(\code{percentile.plot=FALSE}), and the other one represents the density plots of the normalized balance indices (\code{percentile.plot=TRUE}).
 
-The stored data available has been calculated for a number of leaves between 3 and 50. For each of them, the parameters are set as \code{alpha} in \{0,0.1,0.2,...,1\} and \code{gamma} in \{0,0.1,0.2,...,\code{alpha}\}. If the introduced parameters are not in the list, a new computation is done with them and a new dataset of trees is generated, and computed its indices. The number of trees generated can be modified by the parameter \code{repetitions} (see \code{\link{indices.simulation}} for more information). This computation may take some time, therefore you can computate it separately with \code{\link{indices.simulation}}, save its value and then call this function  by setting it as the parameter \code{set.indices}.
+The trees stored in our database have between 3 and 50 leaves and the values of the parameters \code{alpha} and \code{gamma} are in \{0,0.1,...,1\} such that {\code{gamma} \eqn{\le} \code{alpha}}. If the introduced parameters are not in the list, a new computation is done with them and a new dataset of trees is generated, and computed its indices. The number of trees generated can be modified by the parameter \code{repetitions} (see \code{\link{indices.simulation}} for more information). This computation may take some time, therefore you can computate it separately with \code{\link{indices.simulation}}, save its value and then call this function  by setting it as the parameter \code{set.indices}.
 
 The legend is placed with the \code{graphics} function \code{legend()}, so its location can be specified by setting \code{legend.position} to a single keyword from the list \code{"bottomright"}, \code{"bottom"}, \code{"bottomleft"}, \code{"left"}, \code{"topleft"}, \code{"top"}, \code{"topright"}, \code{"right"} and \code{"center"}. 
 The expansion factor for the legend is controlled by the parameter \code{cex}, by default \code{cex=1}. See \code{\link[graphics]{legend}}.
