@@ -13,16 +13,10 @@
 #' 
 #' @examples  
 #' 
-#' # A phylogenetic tree with 10 leaves and
-#' # parameters alpha=0.8 and gamma=0.1
-#' tree = a.g.model(10,0.8,0.1) 
-#' # plot(tree,layout=layout.reingold.tilford(tree,root=which(degree(tree,mode="in")==0)))
-#' 
-#' # A phylogenetic tree with 5 leaves and
-#' # parameters alpha=0.5 and gamma=0.3
-#' tree = a.g.model(5,0.5,0.3)
-#' # plot(tree,layout=layout.reingold.tilford(tree,root=which(degree(tree,mode="in")==0)))
-#' 
+#' # A phylogenetic tree with 10 leaves and parameters alpha=0.8 and gamma=0.1
+#' \donttest{tree = a.g.model(10,0.8,0.1)}
+#' \donttest{plot(tree,layout=layout.reingold.tilford(tree,root=which(degree(tree,mode="in")==0)))}
+#'  
 #' @importFrom igraph graph.edgelist
 #' @importFrom igraph degree 
 #' 

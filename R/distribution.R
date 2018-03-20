@@ -1,4 +1,4 @@
-#' @title Plot the distribution of Colless -Like, Sackin and cophenetic normalized balance indices under the alpha-gamma model and computes the percentile of a tree from previous distributions.
+#' @title Plot the distribution of Colless-Like, Sackin and cophenetic normalized balance indices under the alpha-gamma model and computes the percentile of a tree from previous distributions.
 #' 
 #' @description Given alpha, gamma and a phylogenetic tree, plot the distribution of the Colless-Like, Sackin and cophenetic normalized balance indices under the alpha-gamma model and computes the percentile of that tree of the previous normalized balance indices under the alpha-gamma model.
 #' 
@@ -13,55 +13,56 @@
 #' @param percentile.plot if \code{FALSE} (default),  density plots of the normalized balance indices are shown. if \code{TRUE}, percentiles plots of the normalized balance indices are shown.
 #' @param db.path the current working directory. If our database is used, the db.path parameter should be the directory where the database is located.
 #'
-#' @details Two plots are available: one represents the percentile plots of the normalized balance indices(\code{percentile.plot=FALSE}), and the other one represents the density plots of the normalized balance indices (\code{percentile.plot=TRUE}).
+#' @details Two plots are available: one represents the percentile plots of the normalized balance indices (\code{percentile.plot=TRUE}), and the other one represents the density plots of the normalized balance indices (\code{percentile.plot=FALSE}).
 #' 
-#' The trees stored in our database have between 3 and 50 leaves and the values of the parameters \code{alpha} and \code{gamma} are in \{0,0.1,...,1\} such that {\code{gamma} \eqn{\le} \code{alpha}}. If the introduced parameters are not in the list, a new computation is done with them and a new dataset of trees is generated, and computed its indices. The number of trees generated can be modified by the parameter \code{repetitions} (see \code{\link{indices.simulation}} for more information). This computation may take some time, therefore you can computate it separately with \code{\link{indices.simulation}}, save its value and then call this function  by setting it as the parameter \code{set.indices}.
+#' The trees stored in our database have between 3 and 50 leaves and the values of the parameters \code{alpha} and \code{gamma} are in \{0,0.1,...,1\} such that {\code{gamma} \eqn{\le} \code{alpha}}. If the introduced parameters are not in the list, a new computation is done with them and a new dataset of trees is generated, and their indices are also computed. The number of trees generated can be modified by the parameter \code{repetitions} (see \code{\link{indices.simulation}} for more information). This computation may take some time, therefore you can computate them separately with \code{\link{indices.simulation}}, save their values and then call this function  by setting the parameter \code{set.indices=NULL}.
 #' 
 #' The legend is placed with the \code{graphics} function \code{legend()}, so its location can be specified by setting \code{legend.position} to a single keyword from the list \code{"bottomright"}, \code{"bottom"}, \code{"bottomleft"}, \code{"left"}, \code{"topleft"}, \code{"top"}, \code{"topright"}, \code{"right"} and \code{"center"}. 
 #' The expansion factor for the legend is controlled by the parameter \code{cex}, by default \code{cex=1}. See \code{\link[graphics]{legend}}.
 #'
 #' @return A numeric vector with the three percentiles.
 #' 
-#' @references  Chen, B., Ford, D., Winkel, M., A new family of Markov branching trees: the alpha-gamma model. \emph{Electr. J. Probab}. \bold{14} (2009), 400-430. MR2480547
+#' @references  
+#' B. Chen, D. Ford, M. Winkel, A new family of Markov branching trees: the alpha-gamma model. \emph{Electr. J. Probab}. \bold{14} (2009), 400-430. 
 #' 
-#' A. Mir, F. Rossello, L.Rotger, A Colless-like balance index for multifurcating phylogenetic trees.
+#' A. Mir, F. Rossello, L.Rotger, A Colless-like balance index for multifurcating phylogenetic trees.\emph{}
 #' 
-#' A. Mir, F. Rossello, L.Rotger, A new balance index for phylogenetic trees. Math. Biosc. 241 (2013).
+#' A. Mir, F. Rossello, L.Rotger, A new balance index for phylogenetic trees. \emph{Mathematical Biosciences} \bold{241} (2013), 125-136.
 #' 
-#' M. J. Sackin, "Good" and  "bad" phenograms. Sys. Zool, 21 (1972), 225-226.
+#' M. J. Sackin, "Good" and  "bad" phenograms. \emph{Sys. Zool}, \bold{21} (1972), 225-226.
+#'  
 #' 
 #' @seealso \code{\link[graphics]{legend}}, \code{\link{indices.simulation}}, \code{\link{balance.indices}}
 #' 
 #' @examples 
-#' #If it is need, to specify the location of the database
-#' #folder=".../CollesLikeDataBase/" 
-#' ##If not,
-#' folder=getwd()
+#' #The parameter folder contains the location of the database
+#' #If not specified folder=getwd()
+#' 
 #' ## Different ways to introduce the tree
 #' #From a newick string
-#' #distribution("(1,2,3,4,5);",0.5,0.3,db.path=folder)
-#' #distribution("(1,(2,(3,(4,5))));",0.5,0.3,db.path=folder)
+#' \donttest{distribution("(1,2,3,4,5);",0.5,0.3,db.path=folder)}
+#' \donttest{distribution("(1,(2,(3,(4,5))));",0.5,0.3,db.path=folder)}
 #' 
 #' #From a phylo object
-#' require(ape)
-#' random.tree = rtree(5,rooted=TRUE)
-#' #distribution(random.tree,0.5,0.3,db.path=folder)
+#' \donttest{require(ape)}
+#' \donttest{random.tree = rtree(5,rooted=TRUE)}
+#' \donttest{distribution(random.tree,0.5,0.3,db.path=folder)}
 #' 
 #' #An example of a tree generated by the alpha-gamma model (igraph object)
-#' a.g.tree = a.g.model(5,0.5,0.3)
-#' #distribution(a.g.tree,0.5,0.3,db.path=folder)
+#' \donttest{a.g.tree = a.g.model(5,0.5,0.3)}
+#' \donttest{distribution(a.g.tree,0.5,0.3,db.path=folder)}
 #' 
 #' ## Different indices data
 #' # From our data base
-#' #distribution(a.g.tree,0.5,0.3,db.path=folder)
+#' \donttest{distribution(a.g.tree,0.5,0.3,db.path=folder)}
 #' 
 #' # From a data.frame generated by 'indices.simulation'
 #' # ('Repetitions' set as 10 for a fast example)
-#' #indices.data = indices.simulation(5,0.5,0.3,10)
-#' #distribution(a.g.tree,0.5,0.3,set.indices=indices.data)
+#' \donttest{indices.data = indices.simulation(5,0.5,0.3,10)}
+#' \donttest{distribution(a.g.tree,0.5,0.3,set.indices=indices.data) }
 #' 
 #' # Allow the function to do a new generation of data and compute their indices
-#' #distribution(a.g.tree,0.5,0.3,new.simulation=TRUE,repetitions=10)
+#' \donttest{distribution(a.g.tree,0.5,0.3,new.simulation=TRUE,repetitions=10)}
 #' # WARNING! it might take a long time, it depends on the parameters 
 #' # 'n' (number of leaves) and 'repetition' (number of repetitions)
 #' 

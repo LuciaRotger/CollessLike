@@ -15,7 +15,7 @@ sackin.index(tree, norm = FALSE)
 numeric value.
 }
 \description{
-Given a phylogenetic tree, computes the Sackin balance inde of that phylogenetic tree.
+Given a phylogenetic tree, computes the Sackin balance index of that phylogenetic tree.
 }
 \details{
 The Sackin's index is computed as the sum of the number of ancestors for each leave of the tree.
@@ -47,7 +47,7 @@ sackin.index(a.g.tree,norm=TRUE)
 
 }
 \references{
-M. J. Sackin, "Good" and  "bad" phenograms. Sys. Zool, 21 (1972), 225-226.
+M. J. Sackin, "Good" and  "bad" phenograms. \emph{Sys. Zool}, \bold{21} (1972), 225-226.
 }
 \author{
 Lucia Rotger

@@ -29,14 +29,7 @@ A. Mir, F. Rossello, L. Rotger, A new balance index for phylogenetic trees. \emp
  
 M. J. Sackin, "Good" and  "bad" phenograms. \emph{Sys. Zool}, \bold{21} (1972), 225-226.
 
-%\insertRef{alphagamma}{CollessLike}
 
-%\insertRef{collesslike}{CollessLike}
-
-%\insertRef{cophenetic}{CollessLike}
-
-%\insertRef{sackin}{CollessLike}
-%~~ Literature or other references for background information ~~
 }
 %~~ Optionally other standard keywords, one per line, from file ~~
 %~~ KEYWORDS in the R documentation directory ~~
@@ -56,10 +49,10 @@ a.g.tree = a.g.model(5,0.5,0.3)
 # For a percentile plot set the parameter percentile.plot as TRUE
 #distribution(a.g.tree,0.5,0.3,db.path=getwd(),percentile.plot=TRUE)
  
-# Computation of a sample of size 100 of the Colless-Like, Sackin and 
-# cophenetic balance indices of the distribution of phylogenetic trees 
-# with 5 leaves.
-  indices.data = indices.simulation(5,0.5,0.3,100)
+# Computation of the Colless-Like, Sackin and cophenetic balance indices
+# of a sample of 50 trees that follow the alpha-gamma distribution
+# with alpha=0.5 and gamma=0.3 with 5 leaves.
+  indices.data = indices.simulation(5,0.5,0.3,50)
 # Computation of the percentile of the random tree using the previous 
 # generated sample  
   distribution(a.g.tree,0.5,0.3,set.indices=indices.data)

@@ -9,10 +9,10 @@ balance.indices(tree, norm = FALSE)
 \arguments{
 \item{tree}{a single phylogenetic tree. It can be entered as a string in Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package).}
 
-\item{norm}{a logical variable that indicates whether the indices should been normalized or not.}
+\item{norm}{a logical variable that indicates whether the indices should be normalized or not.}
 }
 \value{
-A numeric vector with the three computed indices of the tree: 
+A numeric vector with the three computed balance indices of the tree: 
 \code{Colless-like}, \code{Sackin} and \code{Cophenetic} values.
 }
 \description{
@@ -23,7 +23,7 @@ The Colless-like index is the generalization of the Colless' index for non-binar
 
 The Sackin's index is computed as the sum of the number of ancestors for each leave of the tree (see Mir et al. , 2013).
 
-The cophenetic index is computed as the sum of the depths of the least common ancestor (LCA) of every pair of leaves (see Sackin et al, 1972).
+The cophenetic index is computed as the sum of the depths of the least common ancestor (LCA) of every pair of leaves of the tree(see Sackin et al, 1972).
 }
 \examples{
 # Computation of the Colless-Like, Sackin and Cophenetic 

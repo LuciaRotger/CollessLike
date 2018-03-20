@@ -3,9 +3,9 @@
 #' @description Given a phylogenetic tree, computes the Colless-like balance index of that phylogenetic tree.
 #' 
 #' @param tree a single phylogenetic tree. It can be entered as a string in Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package). 
-#' @param norm a logical object indicating if the indices should been normalized or not.
-#' @param f.size function to compute the f-size of the tree. See (Mir et al. , 2017) for details . Its default value is "ln" for f(n)=ln(n+e). Other value can be "exp" (f(n)=exp(n). It can also be a user-defined function but in this case, the index cannot be normalized
-#' @param diss by default the dissimilarity used to compute the balance index. See (Mir et al. , 2017) for details. Its default value is MDM (mean deviation from the median). Other values can be set as "sd" (sample standard deviation) or "var" (sample variance) . It can also be a user-defined function but in this case the index cannot be normalized.
+#' @param norm a logical object indicating if the indices should be normalized or not.
+#' @param f.size function to compute the f-size of the tree. See (Mir et al. , 2017) for details. Its default value is "ln" for f(n)=ln(n+e). Other value can be "exp" (f(n)=exp(n)). It can also be a user-defined function but in this case, the index cannot be normalized
+#' @param diss by default, the dissimilarity used to compute the balance index. See (Mir et al. , 2017) for details. Its default value is MDM (mean deviation from the median). Other values can be set as "sd" (sample standard deviation) or "var" (sample variance) . It can also be a user-defined function but in this case the index cannot be normalized.
 #' 
 #' @details 
 #' The Colless-Like balance index is the generalization of the Colless balance index (see Colless,1982) for non-binary trees.
@@ -19,8 +19,11 @@
 #' @return A numeric value.
 #' 
 #' @references 
-#' A. Mir, F. Rossello, L.Rotger, A Colless-like balance index for multifurcating phylogenetic trees. 
-#' D. H. Colless, Review of "Phylogenetics: the theory and practice of phylogenetic systematics". Sys. Zool, 31 (1982), 100--104.
+#' A. Mir, F. Rossello, L.Rotger, A Colless-like balance index for multifurcating phylogenetic trees.\emph{}
+#' 
+#' D. H. Colless, Review of "Phylogenetics: the theory and practice of phylogenetic systematics".
+#' \emph{Sys. Zool}, \bold{31} (1982), 100--104.   
+#' 
 #' 
 #' @examples 
 #' # Computation of the Colless-Like balance index of trees 

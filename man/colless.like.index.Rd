@@ -9,11 +9,11 @@ colless.like.index(tree, f.size = "ln", diss = "MDM", norm = FALSE)
 \arguments{
 \item{tree}{a single phylogenetic tree. It can be entered as a string in Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package).}
 
-\item{f.size}{function to compute the f-size of the tree. See (Mir et al. , 2017) for details . Its default value is "ln" for f(n)=ln(n+e). Other value can be "exp" (f(n)=exp(n). It can also be a user-defined function but in this case, the index cannot be normalized}
+\item{f.size}{function to compute the f-size of the tree. See (Mir et al. , 2017) for details. Its default value is "ln" for f(n)=ln(n+e). Other value can be "exp" (f(n)=exp(n)). It can also be a user-defined function but in this case, the index cannot be normalized}
 
-\item{diss}{by default the dissimilarity used to compute the balance index. See (Mir et al. , 2017) for details. Its default value is MDM (mean deviation from the median). Other values can be set as "sd" (sample standard deviation) or "var" (sample variance) . It can also be a user-defined function but in this case the index cannot be normalized.}
+\item{diss}{by default, the dissimilarity used to compute the balance index. See (Mir et al. , 2017) for details. Its default value is MDM (mean deviation from the median). Other values can be set as "sd" (sample standard deviation) or "var" (sample variance) . It can also be a user-defined function but in this case the index cannot be normalized.}
 
-\item{norm}{a logical object indicating if the indices should been normalized or not.}
+\item{norm}{a logical object indicating if the indices should be normalized or not.}
 }
 \value{
 A numeric value.
@@ -74,8 +74,10 @@ colless.like.index(a.g.tree,f.size="exp",diss="sd")
 
 }
 \references{
-A. Mir, F. Rossello, L.Rotger, A Colless-like balance index for multifurcating phylogenetic trees. 
-D. H. Colless, Review of "Phylogenetics: the theory and practice of phylogenetic systematics". Sys. Zool, 31 (1982), 100--104.
+A. Mir, F. Rossello, L.Rotger, A Colless-like balance index for multifurcating phylogenetic trees.\emph{}
+
+D. H. Colless, Review of "Phylogenetics: the theory and practice of phylogenetic systematics".
+\emph{Sys. Zool}, \bold{31} (1982), 100--104.
 }
 \author{
 Lucia Rotger

@@ -47,7 +47,7 @@ cophen.index(a.g.tree,norm=TRUE)
 
 }
 \references{
-A. Mir, F. Rossello, L.Rotger, A new balance index for phylogenetic trees. Math. Biosc. 241 (2013).
+A. Mir, F. Rossello, L.Rotger, A new balance index for phylogenetic trees. \emph{Mathematical Biosciences} \bold{241} (2013), 125-136.
 }
 \author{
 Lucia Rotger

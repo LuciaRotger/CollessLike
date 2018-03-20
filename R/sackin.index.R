@@ -1,6 +1,6 @@
 #' @title Computes the Sackin balance index of a phylogenetic tree
 #' 
-#' @description Given a phylogenetic tree, computes the Sackin balance inde of that phylogenetic tree.
+#' @description Given a phylogenetic tree, computes the Sackin balance index of that phylogenetic tree.
 #' 
 #' @param tree a single phylogenetic tree. It can be entered as a string in Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package). 
 #' @param norm a logical variable that indicates whether the index should be normalized or not.
@@ -9,7 +9,8 @@
 #' 
 #' @return numeric value.
 #' 
-#' @references M. J. Sackin, "Good" and  "bad" phenograms. Sys. Zool, 21 (1972), 225-226.
+#' @references 
+#' M. J. Sackin, "Good" and  "bad" phenograms. \emph{Sys. Zool}, \bold{21} (1972), 225-226.
 #' 
 #' @examples 
 #' # Computation of the Sackin balance index of trees 

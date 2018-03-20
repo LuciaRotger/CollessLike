@@ -3,18 +3,18 @@
 #' @description Given a phylogenetic tree, computes Colles-like, Sackin and cophenetic balance indices of that tree.
 #' 
 #' @param tree a single phylogenetic tree. It can be entered as a string in Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package). 
-#' @param norm a logical variable that indicates whether the indices should been normalized or not.
+#' @param norm a logical variable that indicates whether the indices should be normalized or not.
 #'
 #' @details The Colless-like index is the generalization of the Colless' index for non-binary trees (see Mir et al. , 2017).
 #' 
 #' The Sackin's index is computed as the sum of the number of ancestors for each leave of the tree (see Mir et al. , 2013).
 #' 
-#' The cophenetic index is computed as the sum of the depths of the least common ancestor (LCA) of every pair of leaves (see Sackin et al, 1972).
+#' The cophenetic index is computed as the sum of the depths of the least common ancestor (LCA) of every pair of leaves of the tree(see Sackin et al, 1972).
 #'
-#' @return A numeric vector with the three computed indices of the tree: 
+#' @return A numeric vector with the three computed balance indices of the tree: 
 #' \code{Colless-like}, \code{Sackin} and \code{Cophenetic} values.
 #' 
-#' @references 
+#' @references  
 #' A. Mir, F. Rossello, L.Rotger, A Colless-like balance index for multifurcating phylogenetic trees.\emph{}
 #' 
 #' A. Mir, F. Rossello, L.Rotger, A new balance index for phylogenetic trees. \emph{Mathematical Biosciences} \bold{241} (2013), 125-136.
