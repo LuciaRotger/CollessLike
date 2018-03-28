@@ -41,6 +41,8 @@ Two plots are available: one represents the percentile plots of the normalized b
 
 The trees stored in our database have between 3 and 50 leaves and the values of the parameters \code{alpha} and \code{gamma} are in \{0,0.1,...,1\} such that {\code{gamma} \eqn{\le} \code{alpha}}. If the introduced parameters are not in the list, a new computation is done with them and a new dataset of trees is generated, and their indices are also computed. The number of trees generated can be modified by the parameter \code{repetitions} (see \code{\link{indices.simulation}} for more information). This computation may take some time, therefore you can computate them separately with \code{\link{indices.simulation}}, save their values and then call this function  by setting the parameter \code{set.indices=NULL}.
 
+Our database is available to download at \url{https://github.com/LuciaRotger/CollessLike/tree/master/CollessLikeDataBase")}.
+
 The legend is placed with the \code{graphics} function \code{legend()}, so its location can be specified by setting \code{legend.position} to a single keyword from the list \code{"bottomright"}, \code{"bottom"}, \code{"bottomleft"}, \code{"left"}, \code{"topleft"}, \code{"top"}, \code{"topright"}, \code{"right"} and \code{"center"}. 
 The expansion factor for the legend is controlled by the parameter \code{cex}, by default \code{cex=1}. See \code{\link[graphics]{legend}}.
 }

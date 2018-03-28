@@ -17,6 +17,8 @@
 #' 
 #' The trees stored in our database have between 3 and 50 leaves and the values of the parameters \code{alpha} and \code{gamma} are in \{0,0.1,...,1\} such that {\code{gamma} \eqn{\le} \code{alpha}}. If the introduced parameters are not in the list, a new computation is done with them and a new dataset of trees is generated, and their indices are also computed. The number of trees generated can be modified by the parameter \code{repetitions} (see \code{\link{indices.simulation}} for more information). This computation may take some time, therefore you can computate them separately with \code{\link{indices.simulation}}, save their values and then call this function  by setting the parameter \code{set.indices=NULL}.
 #' 
+#' Our database is available to download at \url{https://github.com/LuciaRotger/CollessLike/tree/master/CollessLikeDataBase")}.
+#' 
 #' The legend is placed with the \code{graphics} function \code{legend()}, so its location can be specified by setting \code{legend.position} to a single keyword from the list \code{"bottomright"}, \code{"bottom"}, \code{"bottomleft"}, \code{"left"}, \code{"topleft"}, \code{"top"}, \code{"topright"}, \code{"right"} and \code{"center"}. 
 #' The expansion factor for the legend is controlled by the parameter \code{cex}, by default \code{cex=1}. See \code{\link[graphics]{legend}}.
 #'
@@ -92,17 +94,22 @@ distribution <-
       print("This process might take a long time. If you want to save the indices 
             simulation, please run 'indices.simulation' directly and then call 'distribution' by setting
             the resulting table as the parameter 'set.indices'")
+      print("Remember, our indices data base is available to download at: https://github.com/LuciaRotger/CollessLike/tree/master/CollessLikeDataBase")
       warning("New simulation required")
       indices.list=indices.simulation(n,alpha,gamma,repetitions)
       txt = paste("Parameters: alpha=",alpha,", gamma=",gamma,"",sep="")
     }
     else{
       if(is.null(set.indices)){  
-        if(alpha<gamma)
+        if(alpha<gamma){
+          print("Remember, our indices data base is available to download at: https://github.com/LuciaRotger/CollessLike/tree/master/CollessLikeDataBase")
           stop("alpha < gamma")
+        }
         else{
-          if((alpha>1)||(alpha<0)||(gamma>1)||(gamma<0))
+          if((alpha>1)||(alpha<0)||(gamma>1)||(gamma<0)){
+            print("Remember, our indices data base is available to download at: https://github.com/LuciaRotger/CollessLike/tree/master/CollessLikeDataBase")
             stop("alpha and gamma must been between 0 and 1")
+          }
           else{
             txt = paste("Parameters: n=",n,", alpha=",alpha,", gamma=",gamma,"",sep="")
             if(paste("n",n,sep="")%in%dir(db.path)){ 
@@ -111,9 +118,15 @@ distribution <-
               if(file %in% dir(folder)){ 
                 indices.list=read.table(file=paste(folder,file,sep=""), header=TRUE)
               }
-              else stop(paste("The file '",file,"' is not located at '",folder,"'",sep=""))
+              else {
+                print("Remember, our indices data base is available to download at: https://github.com/LuciaRotger/CollessLike/tree/master/CollessLikeDataBase")
+                stop(paste("The file '",file,"' is not located at '",folder,"'",sep=""))
+              }
             }
-            else stop(paste("The folder 'n",n,"' is not located at '",db.path,"'",sep=""))
+            else {
+              print("Remember, our indices data base is available to download at: https://github.com/LuciaRotger/CollessLike/tree/master/CollessLikeDataBase")
+              stop(paste("The folder 'n",n,"' is not located at '",db.path,"'",sep=""))
+            }
           }
         }
       }
