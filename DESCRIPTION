@@ -5,7 +5,7 @@ Version: 1.0
 Date: 2018-03-28
 Author: Arnau Mir, Francesc Rossello, Lucia Rotger
 Maintainer: Lucia Rotger <lucia.rotger@uib.es>
-Description: Computation of Colless-Like, Sackin and cophenetic balance indices of a phylogenetic tree and study of the distribution of these balance indices under the alpha-gamma model.
+Description: Computation of Colless-Like, Sackin and cophenetic balance indices of a phylogenetic tree and study of the distribution of these balance indices under the alpha-gamma model. For more details see A. Mir, F. Rossello, L. Rotger (2013) <doi:10.1016/j.mbs.2012.10.005>, M. J. Sackin (1972) <doi:10.1093/sysbio/21.2.225>, D. H. Colless (1982) <doi:10.2307/2413420>.
 License: GPL (>= 2)
 URL: https://github.com/LuciaRotger/CollessLike
 LazyData: true
