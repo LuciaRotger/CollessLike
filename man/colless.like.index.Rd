@@ -9,7 +9,7 @@ colless.like.index(tree, f.size = "ln", diss = "MDM", norm = FALSE)
 \arguments{
 \item{tree}{a single phylogenetic tree. It can be entered as a string in Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package).}
 
-\item{f.size}{function to compute the f-size of the tree. See (Mir et al. , 2017) for details. Its default value is "ln" for f(n)=ln(n+e). Other value can be "exp" (f(n)=exp(n)). It can also be a user-defined function but in this case, the index cannot be normalized}
+\item{f.size}{function to compute the f-size of the tree. See (Mir et al. , 2018) for details. Its default value is "ln" for f(n)=ln(n+e). Other value can be "exp" (f(n)=exp(n)). It can also be a user-defined function but in this case, the index cannot be normalized}
 
 \item{diss}{by default, the dissimilarity used to compute the balance index. See (Mir et al. , 2017) for details. Its default value is MDM (mean deviation from the median). Other values can be set as "sd" (sample standard deviation) or "var" (sample variance) . It can also be a user-defined function but in this case the index cannot be normalized.}
 
@@ -26,7 +26,7 @@ The Colless-Like balance index is the generalization of the Colless balance inde
 
 Given a function that computes the f-size of a tree and a dissimarity function that computes the difference of the f-sizes of the subtrees rooted at the children of every internal node of the tree, the Colless-Like index is defined as the sum of these dissimilarities for all internal nodes of the tree. (Mir et al. , 2017)
 
-By default, the f-size function is \code{f(n)=exp(n)} and the dissimilarity is the mean deviation from the median (MDM). 
+By default, the f-size function is \code{f(n)=ln(n+e)} and the dissimilarity is the mean deviation from the median (MDM). 
 It is possible to change them by specifying it with the parameters \code{f.size} and \code{diss}, with "exp" the f-size would be \code{f(n)=exp(n)}, and with "var" (or "sd") the dissimilarity would be the sample variance (or the sample standard deviation).
 It is also possible to set a new function for both parameters, see "References".
 }
@@ -74,7 +74,7 @@ colless.like.index(a.g.tree,f.size="exp",diss="sd")
 
 }
 \references{
-A. Mir, F. Rossello, L.Rotger, A Colless-like balance index for multifurcating phylogenetic trees.\emph{}
+A. Mir, F. Rossello, L.Rotger, Sound Colless-like balance indices for multifurcating phylogenetic trees.\emph{PloS ONE} 13 (2018), e0203401.
 
 D. H. Colless, Review of "Phylogenetics: the theory and practice of phylogenetic systematics".
 \emph{Sys. Zool}, \bold{31} (1982), 100--104.

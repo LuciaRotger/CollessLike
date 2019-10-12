@@ -4,8 +4,9 @@
 #' 
 #' @param tree a single phylogenetic tree. It can be entered as a string in Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package). 
 #' @param norm a logical variable that indicates whether the indices should be normalized or not.
+#' @param binary.Colless a logical variable FALSE by default. If is TRUE then the classical Colless index is computed (only for binary trees).
 #'
-#' @details The Colless-like index is the generalization of the Colless' index for non-binary trees (see Mir et al. , 2017).
+#' @details The Colless-like index is the generalization of the Colless' index for non-binary trees (see Mir et al. , 2018).
 #' 
 #' The Sackin's index is computed as the sum of the number of ancestors for each leave of the tree (see Mir et al. , 2013).
 #' 
@@ -15,7 +16,7 @@
 #' \code{Colless-like}, \code{Sackin} and \code{Cophenetic} values.
 #' 
 #' @references  
-#' A. Mir, F. Rossello, L.Rotger, A Colless-like balance index for multifurcating phylogenetic trees.\emph{}
+#' A. Mir, F. Rossello, L.Rotger, Sound Colless-like balance indices for multifurcating phylogenetic trees.\emph{PloS ONE} 13 (2018), e0203401.
 #' 
 #' A. Mir, F. Rossello, L.Rotger, A new balance index for phylogenetic trees. \emph{Mathematical Biosciences} \bold{241} (2013), 125-136.
 #' 
@@ -57,13 +58,13 @@
 #' 
 #' @export
 balance.indices <-
-function(tree,norm=FALSE){  
+  function(tree,norm=FALSE,binary.Colless=FALSE){  
     if(class(tree)=="character") 
-        tree=read.tree(text = tree)
+      tree=read.tree(text = tree)
     if (class(tree)=="phylo") 
-        tree=graph.edgelist(tree$edge, directed=TRUE)  
+      tree=graph.edgelist(tree$edge, directed=TRUE)  
     if(class(tree)!="igraph")
-        stop("Not an igraph object. Please introduce a newick string, an ape tree or an igraph tree.")
+      stop("Not an igraph object. Please introduce a newick string, an ape tree or an igraph tree.")
     root.node = which(degree(tree,mode="in")==0)
     deg.out = degree(tree,mode="out")
     
@@ -73,13 +74,13 @@ function(tree,norm=FALSE){
     int.nodes = (1:length(V(tree)))[deg.out>0] #nodes interiores
     decendents = neighborhood(tree,1,int.nodes,mode = "out")  
     fun.nodes.deltas = function(nodes){ 
-        aux = neighborhood(tree,length(deg.out)-1,nodes,mode = "out")[[1]]  
-        return(sum(f.ln(deg.out[aux]))) 
+      aux = neighborhood(tree,length(deg.out)-1,nodes,mode = "out")[[1]]  
+      return(sum(f.ln(deg.out[aux]))) 
     }
     fun.children = function(children){
-        children = children[-1] 
-        result =  unlist(lapply(children,fun.nodes.deltas))
-        return(result)
+      children = children[-1] 
+      result =  unlist(lapply(children,fun.nodes.deltas))
+      return(result)
     } 
     deltas = lapply(decendents,fun.children)
     Vdis = lapply(deltas, D.MDM)
@@ -99,18 +100,25 @@ function(tree,norm=FALSE){
     N = length(leaves)
     COPHEN = 0  
     for(i in 1:(N-1))
-        for(j in (i+1):N){
-            aux  = length(intersect(root.list[[leaves[i]]],root.list[[leaves[j]]]))-1
-            COPHEN = COPHEN + aux    
-        } 
+      for(j in (i+1):N){
+        aux  = length(intersect(root.list[[leaves[i]]],root.list[[leaves[j]]]))-1
+        COPHEN = COPHEN + aux    
+      } 
     result = c("Colles-Like"=COLLESS,"Sackin"=SACKIN,"Cophenetic"=COPHEN)
-    if(norm){
-      max.cl = ( log(0+exp(1)) + log(2+exp(1)) )*(N-1)*(N-2)/4
-      max.s = N*(N-1)/2 + N-1
-      max.c = N*(N-1)*(N-2)/6
-      result[1] = result[1]/max.cl
-      result[2] = (result[2]-N)/(max.s-N)
-      result[3] = result[3]/max.c
+    if(binary.Colless){
+      if(sum(!(deg.out %in% c("0","2")))==0) 
+        result[1] = result[1]/( (log(0 + exp(1))+log(2 + exp(1)))/2 )
+      else warning("The tree introduced is not binary, Colless-like index for multifurcated trees is computed.")
+    } 
+    else{
+      if(norm){
+        max.cl = ( log(0+exp(1)) + log(2+exp(1)) )*(N-1)*(N-2)/4
+        max.s = N*(N-1)/2 + N-1
+        max.c = N*(N-1)*(N-2)/6
+        result[1] = result[1]/max.cl
+        result[2] = (result[2]-N)/(max.s-N)
+        result[3] = result[3]/max.c
+      }
     }
     return(result)
-}
+  }

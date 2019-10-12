@@ -27,7 +27,7 @@
 #' @references  
 #' B. Chen, D. Ford, M. Winkel, A new family of Markov branching trees: the alpha-gamma model. \emph{Electr. J. Probab}. \bold{14} (2009), 400-430. 
 #' 
-#' A. Mir, F. Rossello, L.Rotger, A Colless-like balance index for multifurcating phylogenetic trees.\emph{}
+#' A. Mir, F. Rossello, L.Rotger, Sound Colless-like balance indices for multifurcating phylogenetic trees.\emph{PloS ONE} 13 (2018), e0203401.
 #' 
 #' A. Mir, F. Rossello, L.Rotger, A new balance index for phylogenetic trees. \emph{Mathematical Biosciences} \bold{241} (2013), 125-136.
 #' 
@@ -97,7 +97,8 @@ distribution <-
       print("Remember, our indices data base is available to download at: https://github.com/LuciaRotger/CollessLike/tree/master/CollessLikeDataBase")
       warning("New simulation required")
       indices.list=indices.simulation(n,alpha,gamma,repetitions)
-      txt = paste("Parameters: alpha=",alpha,", gamma=",gamma,"",sep="")
+      #txt = paste("Parameters: alpha=",alpha,", gamma=",gamma,"",sep="")
+      txt = bquote(paste("Parameters: ",alpha," = ",.(alpha),", ",gamma," = ",.(gamma)))
     }
     else{
       if(is.null(set.indices)){  
@@ -111,7 +112,8 @@ distribution <-
             stop("alpha and gamma must been between 0 and 1")
           }
           else{
-            txt = paste("Parameters: n=",n,", alpha=",alpha,", gamma=",gamma,"",sep="")
+            #txt = paste("Parameters: n=",n,", alpha=",alpha,", gamma=",gamma,"",sep="")
+            txt = bquote(paste("Parameters: n = ",.(n),", ",alpha," = ",.(alpha),", ",gamma," = ",.(gamma)))
             if(paste("n",n,sep="")%in%dir(db.path)){ 
               file = paste("CollessLikeDataBase_n",n,"_a",alpha*100,"_g",gamma*100,"_r5000.txt",sep="")
               folder = paste(db.path,"n",n,"/",sep="")
@@ -195,7 +197,7 @@ distribution <-
     
     if(!percentile.plot){
       plot(-1,-1 , xlab = "", ylab="Distribution of indices",
-           xlim = xlim, ylim = ylim,xaxs = 'i',
+           xlim = xlim, ylim = ylim,xaxs = 'i', yaxs='i', 
            main = 'Distribution of indices', panel.first = grid() )
       
       polygon(d.cl, density = -1, col=rgb(1,0,0,0.2),border = "red",lwd = 1)
@@ -217,7 +219,7 @@ distribution <-
     }
     else{  
       plot(-1,-1 , xlab = "", ylab="Percentiles",
-           xlim = xlim, ylim = c(0,1),xaxs = 'i',
+           xlim = xlim, ylim = c(0,1),xaxs = 'i', yaxs='i', 
            main = 'Percentile Plot', panel.first = grid() )   
       
       lines(d.cl$x/max(d.cl$x),a.cl, col=rgb(1,0,0))
@@ -239,10 +241,10 @@ distribution <-
       points(tree.indices[3],percs[3],pch=21,bg=rgb(0,0,1))
       
     }
-    mtext( txt , line = 0.5) 
+    mtext( txt , line = 0.3) 
     mtext("Normalized indices",line = 2.5,side = 1)
-    mtext(bquote(paste("Percentiles are: ",P[CL],"=",.(percs[1]),
-                       ", ", P[S],"=",.(percs[2]),", ",P[C],"=",.(percs[3]) )),
+    mtext(bquote(paste("Percentiles: ",P[C],"=",.(percs[1]),
+                       ", ", P[S],"=",.(percs[2]),", ",P[Phi],"=",.(percs[3]) )),
           line = 4,side = 1)
     return(percs)
   }

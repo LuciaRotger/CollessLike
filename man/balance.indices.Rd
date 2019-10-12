@@ -4,12 +4,14 @@
 \alias{balance.indices}
 \title{Computes Colles-like, Sackin and cophenetic balance indices of a phylogenetic tree.}
 \usage{
-balance.indices(tree, norm = FALSE)
+balance.indices(tree, norm = FALSE, binary.Colless = FALSE)
 }
 \arguments{
 \item{tree}{a single phylogenetic tree. It can be entered as a string in Newick format, as a 'phylo' object (\code{ape} package) or as an 'igraph' object (\code{igraph} package).}
 
 \item{norm}{a logical variable that indicates whether the indices should be normalized or not.}
+
+\item{binary.Colless}{a logical variable FALSE by default. If is TRUE then the classical Colless index is computed (only for binary trees).}
 }
 \value{
 A numeric vector with the three computed balance indices of the tree: 
@@ -19,7 +21,7 @@ A numeric vector with the three computed balance indices of the tree:
 Given a phylogenetic tree, computes Colles-like, Sackin and cophenetic balance indices of that tree.
 }
 \details{
-The Colless-like index is the generalization of the Colless' index for non-binary trees (see Mir et al. , 2017).
+The Colless-like index is the generalization of the Colless' index for non-binary trees (see Mir et al. , 2018).
 
 The Sackin's index is computed as the sum of the number of ancestors for each leave of the tree (see Mir et al. , 2013).
 
@@ -53,7 +55,7 @@ balance.indices(a.g.tree,norm=TRUE)
 
 }
 \references{
-A. Mir, F. Rossello, L.Rotger, A Colless-like balance index for multifurcating phylogenetic trees.\emph{}
+A. Mir, F. Rossello, L.Rotger, Sound Colless-like balance indices for multifurcating phylogenetic trees.\emph{PloS ONE} 13 (2018), e0203401.
 
 A. Mir, F. Rossello, L.Rotger, A new balance index for phylogenetic trees. \emph{Mathematical Biosciences} \bold{241} (2013), 125-136.
 
